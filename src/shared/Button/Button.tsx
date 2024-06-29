@@ -20,7 +20,14 @@ const Button: FC<ButtonProps> = (props, context) => {
     } = props;
     return (
         <button
-            className={classNames(cls.Button, {}, [className, cls[theme]])}
+            type="button"
+            className={
+                classNames(
+                    cls.Button,
+                    {},
+                    [className, cls[theme]],
+                )
+            }
             {...otherProps}
         >
             {children}
