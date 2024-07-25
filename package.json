@@ -103,13 +103,13 @@
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false,
-        "host": "localhost",
+        "host": "127.0.0.1",
         "port": 6006
       },
       "chrome.iphone7": {
         "target": "chrome.app",
         "preset": "iPhone 7",
-        "host": "localhost",
+        "host": "127.0.0.1",
         "port": 6006
       }
     }
