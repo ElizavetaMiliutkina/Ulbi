@@ -34,5 +34,7 @@ jobs:
         run: sleep 100 # Подождите 60 секунд, при необходимости измените
       - name: Check Storybook Status
         run: curl -I http://127.0.0.1:6006
+      - name: Show Storybook Log
+        run: cat storybook.log
       - name: screenshot testing
         run: npm run test:ui
