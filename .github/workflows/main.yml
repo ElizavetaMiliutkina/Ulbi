@@ -28,5 +28,7 @@ jobs:
         run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
+      - name: Wait for Storybook to start
+        run: sleep 80 # Подождите 60 секунд, при необходимости измените
       - name: screenshot testing
         run: npm run test:ui

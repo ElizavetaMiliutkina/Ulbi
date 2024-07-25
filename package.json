@@ -16,7 +16,7 @@
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static --host 127.0.0.1 --port 6006",
     "storybook": "storybook dev --host 127.0.0.1 -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build --host 127.0.0.1 -p 6006 -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
