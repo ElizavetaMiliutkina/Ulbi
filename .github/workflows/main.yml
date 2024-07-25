@@ -29,6 +29,8 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
       - name: Wait for Storybook to start
-        run: sleep 80 # Подождите 60 секунд, при необходимости измените
+        run: sleep 100 # Подождите 60 секунд, при необходимости измените
+      - name: Check Storybook Status
+        run: curl -I http://127.0.0.1:6006
       - name: screenshot testing
         run: npm run test:ui
