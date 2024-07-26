@@ -36,7 +36,9 @@ jobs:
         run: npm run test:unit
 
       - name: build storybook
-        run: npm run storybook:build
+        run: |
+          npm run storybook:build &> storybook.log &
+          echo $! > storybook_pid.txt
         env:
           CI: true
 
@@ -63,3 +65,4 @@ jobs:
 
       - name: Kill Storybook process
         if: always()
+        run: kill $(cat storybook_pid.txt)
