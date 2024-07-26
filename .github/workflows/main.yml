@@ -32,21 +32,24 @@ jobs:
           CI: true
       - name: Wait for Storybook to start
         run: sleep 180 # Подождите 60 секунд, при необходимости измените
-      - name: Check Storybook Status
+      - name: Check if Storybook is running
         run: |
           for i in {1..10}; do
-            if curl -s http://127.0.0.1:6006 &> /dev/null; then
-              echo "Storybook is up!"
-              break
-            else
-              echo "Waiting for Storybook..."
-              sleep 10
-            fi
+          if curl -s http://127.0.0.1:6006 &> /dev/null; then
+           echo "Storybook is up!"
+           break
+          else
+           echo "Waiting for Storybook..."
+           sleep 10
+          fi
           done
-      - name: Show Storybook Log
-        run: cat storybook.log
-      - name: screenshot testing
-        run: npm run test:ui
-      - name: Kill Storybook process
-        run: kill $(cat storybook_pid.txt)
-        if: always()
+
+        - name: Show Storybook Log
+          run: cat storybook.log
+
+        - name: Run visual tests
+          run: npx loki test --host 127.0.0.1 --port 6006
+
+        - name: Kill Storybook process
+          if: always()
+          run: kill $(cat storybook_pid.txt)
