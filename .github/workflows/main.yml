@@ -40,7 +40,7 @@ jobs:
 
       - name: Build and run Storybook in Docker
         run: |
-          docker build -t storybook-container -f .storybook/Dockerfile .
+          docker build -t storybook-container -f config/storybook/Dockerfile .
           docker run -d -p 6006:6006 --name storybook-container storybook-container
           sleep 10 # wait for Storybook to start
 
