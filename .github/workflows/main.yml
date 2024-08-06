@@ -44,7 +44,7 @@ jobs:
           docker run -d -p 6006:6006 -v ${{ github.workspace }}/.loki:/app/.loki --name storybook-container storybook-container
           sleep 10 # wait for Storybook to start
 
-      - name: Run visual tests
+      - name: Run fast visual tests
         run: npx loki test --host 127.0.0.1 --port 6006
 
       - name: Stop and remove Storybook container
