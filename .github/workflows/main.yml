@@ -42,9 +42,6 @@ jobs:
         env:
           CI: true
 
-      - name: Run storybook
-        run: npm run storybook
-
       - name: Show Storybook Log
         run: cat storybook.log
 
